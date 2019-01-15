@@ -1,7 +1,13 @@
 $(document).ready(function() {
-  const userAPI = 'https://randomuser.me/api/?results=12';
+  const userAPI = 'https://randomuser.me/api/?nat=US&results=12';
 
   const modalContainer = $('<div class="modal-container"></div>');
+
+  // Create search input form
+  var inputForm = '<form action="#" method="get">';
+  inputForm += '<input type="search" id="search-input" class="search-input" placeholder="Search...">';
+  inputForm += '<input type="submit" value="&#x1F50D;" id="serach-submit" class="search-submit"></form>'
+  $('.search-container').append(inputForm);
 
 
   function displayPhotos(data) {
@@ -36,7 +42,6 @@ $(document).ready(function() {
       $('#gallery').append(cardHTML);
 
       // create and append info to modal cotainer
-
       var modal = '<div class="modal">';
       modal += '<button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>';
       modal += '<img class="modal-img" src="' + picture + '" alt="profile picture">';
@@ -53,7 +58,7 @@ $(document).ready(function() {
     // append modalContainer class to gallery
     $('#gallery').append(modalContainer);
 
-    // display modal div which index is matched with card div
+    // display clicked employee info
     $('.card').click(function() {
       const index = $(this).index();
       $('.modal-container').show();
@@ -61,16 +66,35 @@ $(document).ready(function() {
       $('.modal')[index].style.display = "block";
     });
 
-    // hide modal container
+    // button to hide modal container
     $('button').click(function() {
       $('.modal-container').hide();
       $('.modal').hide();
     });
 
-
-
   }// end function displayPhotos
-
   $.getJSON(userAPI, displayPhotos);
+
+
+  // $("form").submit(function(evt) {
+  //   evt.preventDefault();
+  //   let input = $('#search-input').val().toLowerCase();
+  //   $(".card").filter(function() {
+  //     if ($(this).find('.card-name.cap').html().toLowerCase().indexOf(input) > -1) {
+  //       $(this).show();
+  //     } else {
+  //       $(this).hide();
+  //     }
+  //   });
+  // });
+
+
+  $("#search-input").on("keyup", function() {
+    let value = $(this).val().toLowerCase();
+    $(".card").filter(function() {
+      $(this).toggle($(this).find('.card-name.cap').text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
 
 }); // end ready
