@@ -58,7 +58,7 @@ $(document).ready(function() {
     // append modalContainer class to gallery
     $('#gallery').append(modalContainer);
 
-    // display clicked employee info
+    // display clicked employee's info
     $('.card').click(function() {
       const index = $(this).index();
       $('.modal-container').show();
@@ -73,6 +73,7 @@ $(document).ready(function() {
     });
 
   }// end function displayPhotos
+  
   $.getJSON(userAPI, displayPhotos);
 
   // Search employees name
