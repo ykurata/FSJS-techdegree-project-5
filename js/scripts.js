@@ -1,14 +1,13 @@
 $(document).ready(function() {
-  
+
   const userAPI = 'https://randomuser.me/api/?nat=US&results=12';
 
   const modalContainer = $('<div class="modal-container"></div>');
 
-  // Create search input form
+  // Create nd append asearch input form
   let inputForm = '<form action="#" method="get">';
   inputForm += '<input type="search" id="search-input" class="search-input" placeholder="Search..."></form>';
   //inputForm += '<input type="submit" value="&#x1F50D;" id="serach-submit" class="search-submit"></form>'
-
   $('.search-container').append(inputForm);
 
   function displayPhotos(data) {
@@ -59,7 +58,6 @@ $(document).ready(function() {
       $('#gallery').append(modalContainer);
       $('.modal-container').hide();
     }); // end each
-
 
     // append modalContainer class to gallery
     $('#gallery').append(modalContainer);
