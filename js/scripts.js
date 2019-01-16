@@ -7,8 +7,8 @@ $(document).ready(function() {
   var inputForm = '<form action="#" method="get">';
   inputForm += '<input type="search" id="search-input" class="search-input" placeholder="Search..."></form>';
   //inputForm += '<input type="submit" value="&#x1F50D;" id="serach-submit" class="search-submit"></form>'
-  $('.search-container').append(inputForm);
 
+  $('.search-container').append(inputForm);
 
   function displayPhotos(data) {
 
@@ -46,10 +46,12 @@ $(document).ready(function() {
       modal += '<button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>';
       modal += '<img class="modal-img" src="' + picture + '" alt="profile picture">';
       modal += '<h3 id="name" class="modal-name cap">' + name + '</h3>';
+      modal += '<p class="modal-text">' + phone + '</p>';
       modal += '<p class="modal-text">' + email + '</p>';
       modal += '<p class="modal-text cap">' + address + '</p>';
       modal += '<hr>';
-      modal += '<p class="modal-text">Birthday: ' + birthday + '</p>'
+      modal += '<p class="modal-text">Birthday: ' + birthday + '</p></div>';
+
       modalContainer.append(modal);
       $('#gallery').append(modalContainer);
       $('.modal-container').hide();
@@ -73,7 +75,7 @@ $(document).ready(function() {
     });
 
   }// end function displayPhotos
-  
+
   $.getJSON(userAPI, displayPhotos);
 
   // Search employees name
