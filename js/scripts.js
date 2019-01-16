@@ -5,8 +5,8 @@ $(document).ready(function() {
 
   // Create search input form
   var inputForm = '<form action="#" method="get">';
-  inputForm += '<input type="search" id="search-input" class="search-input" placeholder="Search...">';
-  inputForm += '<input type="submit" value="&#x1F50D;" id="serach-submit" class="search-submit"></form>'
+  inputForm += '<input type="search" id="search-input" class="search-input" placeholder="Search..."></form>';
+  //inputForm += '<input type="submit" value="&#x1F50D;" id="serach-submit" class="search-submit"></form>'
   $('.search-container').append(inputForm);
 
 
@@ -75,26 +75,12 @@ $(document).ready(function() {
   }// end function displayPhotos
   $.getJSON(userAPI, displayPhotos);
 
-
-  // $("form").submit(function(evt) {
-  //   evt.preventDefault();
-  //   let input = $('#search-input').val().toLowerCase();
-  //   $(".card").filter(function() {
-  //     if ($(this).find('.card-name.cap').html().toLowerCase().indexOf(input) > -1) {
-  //       $(this).show();
-  //     } else {
-  //       $(this).hide();
-  //     }
-  //   });
-  // });
-
-
+  // Search employees name
   $("#search-input").on("keyup", function() {
     let value = $(this).val().toLowerCase();
     $(".card").filter(function() {
       $(this).toggle($(this).find('.card-name.cap').text().toLowerCase().indexOf(value) > -1)
     });
   });
-
 
 }); // end ready
