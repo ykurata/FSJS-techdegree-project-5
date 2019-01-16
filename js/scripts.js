@@ -1,10 +1,11 @@
 $(document).ready(function() {
+  
   const userAPI = 'https://randomuser.me/api/?nat=US&results=12';
 
   const modalContainer = $('<div class="modal-container"></div>');
 
   // Create search input form
-  var inputForm = '<form action="#" method="get">';
+  let inputForm = '<form action="#" method="get">';
   inputForm += '<input type="search" id="search-input" class="search-input" placeholder="Search..."></form>';
   //inputForm += '<input type="submit" value="&#x1F50D;" id="serach-submit" class="search-submit"></form>'
 
@@ -25,13 +26,13 @@ $(document).ready(function() {
       const cardHTML = $('<div class="card"></div>');
 
       // Create and append employee's photo
-      var cardImageContainer = '<div class="card-img-container">';
+      let cardImageContainer = '<div class="card-img-container">';
       cardImageContainer += '<img class="card-img" src="' + picture + '" alt="profile picture">'
       cardImageContainer += '</div>'
       cardHTML.append(cardImageContainer);
 
       // Create and append employee's info
-      var cardInfoContainer = '<div class="card-info-container">';
+      let cardInfoContainer = '<div class="card-info-container">';
       cardInfoContainer += '<h3 id="name" class="card-name cap">' + name +'</h3>';
       cardInfoContainer += '<p class="card-text">' + email + '</p>';
       cardInfoContainer += '<p class="card-text cap">' + city + '</p>';
@@ -42,7 +43,7 @@ $(document).ready(function() {
       $('#gallery').append(cardHTML);
 
       // create and append info to modal cotainer
-      var modal = '<div class="modal">';
+      let modal = '<div class="modal">';
       modal += '<button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>';
       modal += '<div class="modal-info-container">';
       modal += '<img class="modal-img" src="' + picture + '" alt="profile picture">';
@@ -59,7 +60,7 @@ $(document).ready(function() {
       $('.modal-container').hide();
     }); // end each
 
-    
+
     // append modalContainer class to gallery
     $('#gallery').append(modalContainer);
 
