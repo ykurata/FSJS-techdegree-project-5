@@ -44,19 +44,22 @@ $(document).ready(function() {
       // create and append info to modal cotainer
       var modal = '<div class="modal">';
       modal += '<button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>';
+      modal += '<div class="modal-info-container">';
       modal += '<img class="modal-img" src="' + picture + '" alt="profile picture">';
       modal += '<h3 id="name" class="modal-name cap">' + name + '</h3>';
-      modal += '<p class="modal-text">' + phone + '</p>';
       modal += '<p class="modal-text">' + email + '</p>';
-      modal += '<p class="modal-text cap">' + address + '</p>';
+      modal += '<p class="modal-text cap">' + city + '</p>';
       modal += '<hr>';
-      modal += '<p class="modal-text">Birthday: ' + birthday + '</p></div>';
+      modal += '<p class="modal-text">' + phone + '</p>';
+      modal += '<p class="modal-text">' + address + '</p>';
+      modal += '<p class="modal-text">Birthday: ' + birthday + '</p></div></div>';
 
       modalContainer.append(modal);
       $('#gallery').append(modalContainer);
       $('.modal-container').hide();
     }); // end each
 
+    
     // append modalContainer class to gallery
     $('#gallery').append(modalContainer);
 
